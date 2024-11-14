@@ -204,7 +204,7 @@ License: For each use you must have a valid license purchased only from above li
 									</li>
 									<!--end::Item-->
 									<!--begin::Item-->
-									<li class="breadcrumb-item text-muted">% Foreign Holding of LCY Bonds</li>
+									<li class="breadcrumb-item text-muted">IRMS</li>
 									<!--end::Item-->
 								</ul>
 								<!--end::Breadcrumb-->
@@ -646,7 +646,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link" style="background: linear-gradient(45deg, #20c997, #28a745);" href="FOREIGN_HOLDING.html">
+											<a class="menu-link" href="FOREIGN_HOLDING.html">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -776,7 +776,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link" href="IRMS.html">
+											<a class="menu-link" style="background: linear-gradient(45deg, #20c997, #28a745);" href="IRMS.html">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -1009,7 +1009,7 @@ License: For each use you must have a valid license purchased only from above li
             chartData.push(rowData);
 
             // For Line Chart
-            if (row[0] === '% Foreign Holding of LCY Bonds') {
+            if (row[0] === 'IRMS') {
                 lineChartCREDIT.push(...row.slice(1));
                 CREDIT2024 = row[11];  // December is the 12th month (index 11)
             } else if (row[0] === 'GDP') {
@@ -1047,7 +1047,7 @@ License: For each use you must have a valid license purchased only from above li
                 }
             },
             title: {
-                text: '% Foreign Holding of LCY Bonds and GDP Nov 2024',
+                text: 'IRMS and GDP Nov 2024',
                 align: 'center'
             },
             accessibility: {
@@ -1073,7 +1073,7 @@ License: For each use you must have a valid license purchased only from above li
                 type: 'pie',
                 name: 'Share',
                 data: [
-                    ['% Foreign Holding of LCY Bonds', CREDIT2024],  // Data for December 2024 FA
+                    ['IRMS', CREDIT2024],  // Data for December 2024 FA
                     ['GDP', GDP2024]   // Data for December 2024 GDP
                 ]
             }]
@@ -1085,7 +1085,7 @@ License: For each use you must have a valid license purchased only from above li
                 type: 'line'
             },
             title: {
-                text: '% Foreign Holding of LCY Bonds and GDP Trend (2024)'
+                text: 'IRMS and GDP Trend (2024)'
             },
             xAxis: {
                 categories: months
@@ -1096,7 +1096,7 @@ License: For each use you must have a valid license purchased only from above li
                 }
             },
             series: [{
-                name: '% Foreign Holding of LCY Bonds/GDP Ratio',
+                name: 'IRMS/GDP Ratio',
                 data: lineChartRatio,
                 lineWidth: 2,
                 color: 'blue'  // Change color for the ratio line
@@ -1219,7 +1219,7 @@ License: For each use you must have a valid license purchased only from above li
         }
     }
 
-    fetchExcelData('DATA/Indikator/Foreign_Holding.xlsx');
+    fetchExcelData('DATA/Indikator/IRMS.xlsx');
 </script>
 
 
