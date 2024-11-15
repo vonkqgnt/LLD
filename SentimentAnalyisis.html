@@ -52,100 +52,56 @@ License: For each use you must have a valid license purchased only from above li
 	<script src="assets/excel/xlsx.full.min.js"></script>
 
 	<style type="text/css">
-		.highcharts-figure,
-		.highcharts-data-table table {
-			min-width: 320px;
-			max-width: 660px;
-			margin: 1em auto;
-		}
+    /* Styling untuk tabel */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+    }
 
-		.highcharts-data-table table {
-			font-family: Verdana, sans-serif;
-			border-collapse: collapse;
-			border: 1px solid #ebebeb;
-			margin: 10px auto;
-			text-align: center;
-			width: 100%;
-			max-width: 500px;
-		}
+    /* Styling untuk header */
+    .table th {
+        background: #d3d0d0;
+        color: rgb(0, 0, 0);
+		text-align: center;
+		padding: 10px;
+		font-weight: bold;  /* Membuat teks di header tabel tebal */
+		font-size: 18px;    /* Membesarkan ukuran font pada header tabel */
+    }
 
-		.highcharts-data-table caption {
-			padding: 1em 0;
-			font-size: 1.2em;
-			color: #555;
-		}
+    /* Styling untuk sel data */
+    .table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
 
-		.highcharts-data-table th {
-			font-weight: 600;
-			padding: 0.5em;
-		}
+.table td:nth-child(1) {
+    text-align: center;  /* Kolom 1 (No.) center */
+}
 
-		.highcharts-data-table td,
-		.highcharts-data-table th,
-		.highcharts-data-table caption {
-			padding: 0.5em;
-		}
+.table td:nth-child(2) {
+    text-align: left;    /* Kolom 2 (Deskripsi) left */
+}
 
-		.highcharts-data-table thead tr,
-		.highcharts-data-table tr:nth-child(even) {
-			background: #f8f8f8;
-		}
+.table td:nth-child(3), .table td:nth-child(4) {
+    text-align: center;  /* Kolom 3 dan 4 (Skor) center */
+	font-weight: bold;
+}
 
-		.highcharts-data-table tr:hover {
-			background: #f1f7ff;
-		}
-	</style>
+    /* Styling untuk row dengan gradasi warna */
+    .row-red {
+        background: linear-gradient(to right, #ff1212, #ff9999);
+    }
 
-	<style>
-		#containerPIE {
-			height: 400px;
-			width: 100%;
-			margin-top: -12px;
-		}
+    .row-yellow {
+        background: linear-gradient(to right, #ffcc00, #ffff66);
+    }
 
-		.highcharts-figure,
-		.highcharts-data-table table {
-			min-width: 310px;
-			max-width: 800px;
-			margin: 1em auto;
-		}
+    .row-green {
+        background: linear-gradient(to right, #66ff66, #00cc00);
+    }
 
-		.highcharts-data-table table {
-			font-family: Verdana, sans-serif;
-			border-collapse: collapse;
-			border: 1px solid #ebebeb;
-			margin: 10px auto;
-			text-align: center;
-			width: 100%;
-			max-width: 500px;
-		}
-
-		.highcharts-data-table caption {
-			padding: 1em 0;
-			font-size: 1.2em;
-			color: #555;
-		}
-
-		.highcharts-data-table th {
-			font-weight: 600;
-			padding: 0.5em;
-		}
-
-		.highcharts-data-table td,
-		.highcharts-data-table th,
-		.highcharts-data-table caption {
-			padding: 0.5em;
-		}
-
-		.highcharts-data-table thead tr,
-		.highcharts-data-table tr:nth-child(even) {
-			background: #f8f8f8;
-		}
-
-		.highcharts-data-table tr:hover {
-			background: #f1f7ff;
-		}
-	</style>
+</style>
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -187,24 +143,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--begin::Breadcrumb-->
 								<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-1 my-0">
 									<!--begin::Item-->
-									<li class="breadcrumb-item text-muted">BOP</li>
-									<!--end::Item-->
-									<!--begin::Item-->
-									<li class="breadcrumb-item">
-										<span class="bullet bg-gray-500 w-5px h-2px"></span>
-									</li>
-									<!--end::Item-->
-									<!--begin::Item-->
-									<li class="breadcrumb-item text-muted">Indikator/Rasio</li>
-									<!--end::Item-->
-
-									<!--begin::Item-->
-									<li class="breadcrumb-item">
-										<span class="bullet bg-gray-500 w-5px h-2px"></span>
-									</li>
-									<!--end::Item-->
-									<!--begin::Item-->
-									<li class="breadcrumb-item text-muted">CAGDP</li>
+									<li class="breadcrumb-item text-muted">Sentiment Analyisis</li>
 									<!--end::Item-->
 								</ul>
 								<!--end::Breadcrumb-->
@@ -339,7 +278,7 @@ License: For each use you must have a valid license purchased only from above li
 					data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}"
 					data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="start"
 					data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
-					<div class="app-sidebar-header d-flex flex-stack d-none d-lg-flex pt-8"
+					<div class="app-sidebar-header d-flex flex-stack d-none d-lg-flex pt-8 pb-2"
 						id="kt_app_sidebar_header">
 						<!--begin::Logo-->
 						<a href="#">
@@ -686,7 +625,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link"  href="PERTUMBUHAN_KREDIT.html">
+											<a class="menu-link" href="PERTUMBUHAN_KREDIT.html">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -816,7 +755,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link" style="background: linear-gradient(45deg, #20c997, #28a745);" href="CAGDP.html">
+											<a class="menu-link" href="CAGDP.html">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -860,7 +799,8 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end:Menu item-->
 								<div class="menu-item">
 									<!--begin::Menu link-->
-									<a class="menu-link" href="NowcastingCapitalFlows.html">
+									<a class="menu-link"
+										href="NowcastingCapitalFlows.html">
 										<!--begin::Icon-->
 										<span class="menu-icon">
 											<i class="ki-outline ki-lock-2 fs-2"></i>
@@ -876,7 +816,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end:Menu item-->
 								<div class="menu-item">
 									<!--begin::Menu link-->
-									<a class="menu-link" href="SentimentAnalyisis.html">
+									<a class="menu-link" style="background: linear-gradient(45deg, #20c997, #28a745);" href="SentimentAnalyisis.html">
 										<!--begin::Icon-->
 										<span class="menu-icon">
 											<i class="ki-outline ki-abstract-26 fs-2"></i>
@@ -905,50 +845,60 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Content container-->
 							<div id="kt_app_content_container" class="app-container container-fluid">
 								<div class="tab-content">
-									<!--begin::Row-->
-									<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-										<!--begin::Col-->
-										<div class="col-xl-5">
-											<!--begin::Chart Widget 35-->
-											<div class="card card-flush h-md-100">
-												<div id="containerPIE"></div>
-											</div>
-											<!--end::Chart Widget 35-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-xl-7">
-											<!--begin::Table widget 14-->
-											<div class="card card-flush h-md-100">
-												<div id="containerLINE"></div>
-											</div>
-											<!--end::Table widget 14-->
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->
-									<!--begin::Col-->
-									<div class="col-xl-12">
-										<!--begin::Table widget 14-->
-										<div class="card card-flush h-md-100">
-											<!--begin::Header-->
-
-											<!--end::Header-->
-											<!--begin::Body-->
-											<div class="card-body pt-12">
-												<!--begin::Table container-->
-												<div class="table-responsive">
-													<!--begin::Table-->
-
-													<div id="table-container" class="table-responsive"></div>
-												</div>
-												<!--end::Table-->
-											</div>
-											<!--end: Card Body-->
-										</div>
-										<!--end::Table widget 14-->
-									</div>
-
+									<table class="table table-bordered mb-none" id="datatable-tabletools">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Real Time Sentiment Analysis Risk Monitoring</th>
+            <th>Skor Oktober 2024</th>
+            <th>Skor November 2024</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Row 1: Red -->
+        <tr>
+            <td>1</td>
+            <td>Ketidakpastian Global yang semakin tinggi membuat aliran modal lebih selektif dan menekan banyak mata uang Emerging Markets</td>
+            <td class="row-red">4.78</td>
+            <td class="row-red">4.81</td>
+        </tr>
+        <!-- Row 2: Red -->
+        <tr>
+            <td>2</td>
+            <td>Potensi Peningkatan FFR lebih lanjut di tengah inflasi US yang masih stubborn serta dampaknya pada pemulihan ekonomi global dan kinerja sistem keuangan</td>
+            <td class="row-red">4.62</td>
+            <td class="row-red">4.74</td>
+        </tr>
+        <!-- Row 3: Yellow -->
+        <tr>
+            <td>3</td>
+            <td>Prakiraan pertumbuhan ekonomi global yang masih berpotensi melambat dan masih ditopang sektor jasa termasuk di negara mitra dagang utama yakni Tiongkok</td>
+            <td class="row-yellow">3.98</td>
+            <td class="row-yellow">3.48</td>
+        </tr>
+        <!-- Row 4: Yellow -->
+        <tr>
+            <td>4</td>
+            <td>Gangguan pada operasional sistem keuangan termasuk cyber attack, gangguan layanan perbankan, sistem pembayaran maupun operasional pendukung</td>
+            <td class="row-yellow">3.88</td>
+            <td class="row-yellow">3.74</td>
+        </tr>
+        <!-- Row 5: Green -->
+        <tr>
+            <td>5</td>
+            <td>Prospek harga komoditas ekspor yang masih bias bawah bersumber dari prospek harga batu bara yang lebih rendah yang disebabkan prospek demand Tiongkok dan India yang melemah</td>
+            <td class="row-green">2.81</td>
+            <td class="row-green">2.98</td>
+        </tr>
+        <!-- Row 6: Green -->
+        <tr>
+            <td>6</td>
+            <td>Dampak Pilpres USA (Global) dan Pilpres Indonesia (Domestik) terhadap minat investor asing untuk investasi di Indonesia</td>
+            <td class="row-green">2.78</td>
+            <td class="row-green">2.01</td>
+        </tr>
+    </tbody>
+</table>
 								</div>
 								<!--end::Wrapper-->
 							</div>
@@ -982,263 +932,72 @@ License: For each use you must have a valid license purchased only from above li
     // Function to fetch and parse the Excel file
     function fetchExcelData(url) {
         fetch(url)
-            .then(response => response.arrayBuffer())
+            .then(response => response.arrayBuffer())  // Fetch the Excel file as an ArrayBuffer
             .then(data => {
-                const workbook = XLSX.read(data, { type: 'array' });
-                const sheetName = workbook.SheetNames[0]; // Get the first sheet
-                const sheet = workbook.Sheets[sheetName];
-                const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-
-                // Process the Excel data and create the Highcharts chart
-                processExcelData(jsonData);
-                processTableData(jsonData);
+                const workbook = XLSX.read(data, { type: 'array' });  // Parse the workbook
+                const sheetName = workbook.SheetNames[0];  // Get the first sheet name
+                const sheet = workbook.Sheets[sheetName];  // Get the sheet data
+                const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });  // Convert sheet to JSON
+                
+                // Process the Excel data and create the table rows
+                // processExcelData(jsonData);
             })
             .catch(error => console.error('Error fetching or parsing Excel file:', error));
     }
 
-    // Function to process the Excel data and create the Highcharts charts
     function processExcelData(data) {
-        const chartData = [];
-        const lineChartCREDIT = [];
-        const lineChartGDP = [];
-        const lineChartRatio = [];  // Array to store GDP ratio
-        const stdDev1Ratio = [];  // Array to store GDP + 1 standard deviation
-        const stdDev2Ratio = [];  // Array to store GDP + 2 standard deviation
+        const tableBody = document.querySelector('#tabel_data tbody');
+        tableBody.innerHTML = '';  // Clear the table body before inserting new rows
 
-        // Months (2024)
-        const months = data[0].slice(1);  // Extract months from the header (Jan - Dec)
+        // Loop through the Excel data starting from the 3rd row (index 2)
+        for (let rowIndex = 2; rowIndex < data.length; rowIndex++) {
+            const row = data[rowIndex];
+            const tableRow = document.createElement('tr');
 
-        // Only two categories: PI and GDP
-        const categories = ['CREDIT', 'GDP'];
+            // Insert the "Periode Data" column (first column in the row)
+            const periodeCell = document.createElement('td');
+            periodeCell.classList.add('text-start', 'min-w-10px', 'pb-3', 'p-2');
+            periodeCell.textContent = row[0] || '';  // Assuming the first column is "Periode Data"
+            tableRow.appendChild(periodeCell);
 
-        // Initialize variables to store data for the pie chart
-        let CREDIT2024 = 0;
-        let GDP2024 = 0;
-
-        // Process CA and GDP data for each month
-        for (let i = 1; i < 3; i++) {  // Only for "CA" and "GDP"
-            const row = data[i];  // Fetching the row for "CA" or "GDP"
-            const rowData = {
-                name: row[0], // PI or GDP
-                data: row.slice(1) // The monthly data (Jan - Dec)
-            };
-            chartData.push(rowData);
-
-            // For Line Chart
-            if (row[0] === 'CAGDP') {
-                lineChartCREDIT.push(...row.slice(1));
-                CREDIT2024 = row[11];  // December is the 12th month (index 11)
-            } else if (row[0] === 'GDP') {
-                lineChartGDP.push(...row.slice(1));
-                GDP2024 = row[11];  // December is the 12th month (index 11)
-            }
-        }
-
-        // Calculate the GDP ratio for each month and store it
-        for (let i = 0; i < lineChartCREDIT.length; i++) {
-            const crValue = lineChartCREDIT[i];
-            const gdpValue = lineChartGDP[i];
-            const ratio = (gdpValue !== 0) ? (crValue / gdpValue) : 0;  // Avoid division by zero
-            lineChartRatio.push(ratio);
-        }
-
-        // Calculate the mean and standard deviation for the GDP ratio
-        const meanRatio = calculateMean(lineChartRatio);
-        const stdDevRatio = calculateStdDev(lineChartRatio, meanRatio);
-
-        // Calculate the standard deviation lines (+1σ, +2σ)
-        for (let i = 0; i < lineChartRatio.length; i++) {
-            stdDev1Ratio.push(meanRatio + stdDevRatio);  // +1 standard deviation
-            stdDev2Ratio.push(meanRatio + 2 * stdDevRatio);  // +2 standard deviations
-        }
-
-        // Render the Pie chart with the processed data for December 2024
-        Highcharts.chart('containerPIE', {
-            chart: {
-                type: 'pie',
-                options3d: {
-                    enabled: true,
-                    alpha: 45,
-                    beta: 0
-                }
-            },
-            title: {
-                text: 'CAGDP and GDP Nov 2024',
-                align: 'center'
-            },
-            accessibility: {
-                point: {
-                    valueSuffix: 'M'
-                }
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.y:.2f}M</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    depth: 35,
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.name}'
-                    }
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Share',
-                data: [
-                    ['CAGDP', CREDIT2024],  // Data for December 2024 FA
-                    ['GDP', GDP2024]   // Data for December 2024 GDP
-                ]
-            }]
-        });
-
-        // Render the Line chart for FA, GDP, and GDP Ratio with standard deviation lines
-        Highcharts.chart('containerLINE', {
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'CAGDP and GDP Trend (2024)'
-            },
-            xAxis: {
-                categories: months
-            },
-            yAxis: {
-                title: {
-                    text: 'Million USD'
-                }
-            },
-            series: [{
-                name: 'CAGDP/GDP Ratio',
-                data: lineChartRatio,
-                lineWidth: 2,
-                color: 'blue'  // Change color for the ratio line
-            }, {
-                name: 'Standard Deviation 1',
-                data: stdDev1Ratio,
-                lineWidth: 1,
-                dashStyle: 'ShortDash',  // Dashed line
-                color: 'yellow'
-            }, {
-                name: 'Standard Deviations 2',
-                data: stdDev2Ratio,
-                lineWidth: 1,
-                dashStyle: 'ShortDash',  // Dashed line
-                color: 'red'
-            }]
-        });
-    }
-
-    // Function to calculate the mean of a dataset
-    function calculateMean(data) {
-        const sum = data.reduce((acc, val) => acc + val, 0);
-        return sum / data.length;
-    }
-
-    // Function to calculate the standard deviation of a dataset
-    function calculateStdDev(data, mean) {
-        const variance = data.reduce((acc, val) => acc + Math.pow(val - mean, 2), 0) / data.length;
-        return Math.sqrt(variance);
-    }
-
-    // Function to process the table data
-    function processTableData(data) {
-        // Data for table
-        const tableData = [];
-
-        // Months (2024)
-        const months = data[0].slice(1);  // Extract months from the header (Jan - Dec)
-
-        // Process the table rows (CA and GDP)
-        for (let i = 1; i < 3; i++) {  // Only for "CA" and "GDP"
-            const row = data[i];
-            const rowData = [row[0]];  // Category name (GDP)
-
-            // Add the data for CA and GDP for each month
-            rowData.push(...row.slice(1)); // Add the data for each month
-
-            tableData.push(rowData);
-        }
-
-        // Create the table HTML dynamically
-        const table = document.createElement('table');
-        table.classList.add('table', 'table-striped', 'table-bordered', 'align-middle', 'gs-0', 'gy-3', 'my-0');
-
-        const tableCaption = document.createElement('caption');
-        tableCaption.textContent = 'CA and GDP (2024)';
-        table.appendChild(tableCaption);
-
-        const thead = document.createElement('thead');
-        const headerRow = document.createElement('tr');
-        headerRow.classList.add('fs-7', 'fw-bold', 'text-gray-500', 'border-bottom-2');
-
-        // Table header columns
-        const headers = ['No.', 'Category', ...months];
-        headers.forEach((header, index) => {
-            const th = document.createElement('th');
-            th.classList.add('text-center', 'py-3', 'px-4');
-
-            if (index === 0) {
-                th.classList.add('min-w-10px', 'text-center'); // Center the "No." column
-            } else if (index === 1) {
-                th.classList.add('min-w-150px', 'text-start');
+            // Check if this is the "Total Jan-Feb" row (index 2)
+            if (rowIndex === 2) {  // Adjust this if necessary
+                // Merge the 5 columns (ElasticNet, RandomForest, XGBoost, SupportVector, EnsembleAvg)
+                const mergedCell = document.createElement('td');
+                mergedCell.setAttribute('colspan', '5');  // Merge across the 5 columns of Nowcasting models
+                mergedCell.classList.add('merged-cell'); // Add merged cell styling
+                mergedCell.innerHTML = `<div align="center"><span>${row[1]}</span></div>`;
+                tableRow.appendChild(mergedCell);
             } else {
-                th.classList.add('min-w-100px', 'text-center');
+                // Loop through the next columns (Nowcasting results) for other rows
+                for (let i = 1; i <= 5; i++) {
+                    const cell = document.createElement('td');
+                    cell.classList.add('text-end', 'pe-0');
+                    cell.innerHTML = `<span >${row[i]}</span>`; // Add data with styling
+                    tableRow.appendChild(cell);
+                }
             }
 
-            th.textContent = header;
-            headerRow.appendChild(th);
-        });
+            // Insert the Proyeksi Tw. I columns (RDG Jan 2024, RDG Feb 2024)
+            const rdgJanValue = row[6] !== undefined ? row[6] : ''; // If undefined, use an empty string
+            const rdgFebValue = row[7] !== undefined ? row[7] : ''; // If undefined, use an empty string
 
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
+            const rdgJanCell = document.createElement('td');
+            rdgJanCell.innerHTML = `<div align="center"><span>${rdgJanValue}</span></div>`;
+            tableRow.appendChild(rdgJanCell);
 
-        const tbody = document.createElement('tbody');
-        tableData.forEach((rowData, index) => {
-            const row = document.createElement('tr');
-            row.classList.add('text-center');
+            const rdgFebCell = document.createElement('td');
+            rdgFebCell.innerHTML = `<div align="center"><span>${rdgFebValue}</span></div>`;
+            tableRow.appendChild(rdgFebCell);
 
-            // Add row number as the first cell (centered)
-            const tdNo = document.createElement('td');
-            tdNo.classList.add('text-center');  // Center the "No." cell
-            tdNo.textContent = index + 1;  // Add index for "No."
-            row.appendChild(tdNo);
-
-            // Add category (row[0] is the category name, e.g., 'CA')
-            const tdCategory = document.createElement('td');
-            tdCategory.classList.add('text-start');
-            tdCategory.textContent = rowData[0];  // Category name
-            row.appendChild(tdCategory);
-
-            // Add the data for each month
-            rowData.slice(1).forEach(cellData => {
-                const td = document.createElement('td');
-                td.textContent = cellData;  // CA or GDP values
-                row.appendChild(td);
-            });
-
-            tbody.appendChild(row);
-        });
-
-        table.appendChild(tbody);
-
-        // Find the target div element and append the table
-        const divContainer = document.getElementById('table-container');
-        if (divContainer) {
-            divContainer.innerHTML = '';  // Clear previous content
-            divContainer.appendChild(table);
-        } else {
-            console.error("Table container not found.");
+            // Append the row to the table body
+            tableBody.appendChild(tableRow);
         }
     }
 
-    fetchExcelData('DATA/Indikator/CAGDP.xlsx');
+    // Example: Fetch data from an Excel file
+    fetchExcelData('DATA/Nowcasting/Nowcasting.xlsx');
 </script>
-
-
 
 </body>
 <!--end::Body-->
