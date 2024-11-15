@@ -222,6 +222,36 @@ License: For each use you must have a valid license purchased only from above li
     td, th {
         border-radius: 6px;
     }
+	/* Mengatur tata letak kontainer logo dan teks */
+.logo-container {
+    display: flex;
+    align-items: center; /* Menjaga agar logo dan teks sejajar secara vertikal */
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: rgb(139, 187, 139);
+}
+
+/* Mengatur ukuran gambar logo */
+.logo-img {
+    height: 50px;
+    margin-right: 10px; /* Memberikan jarak antara logo dan teks */
+}
+
+/* Menata teks */
+.logo-text {
+    display: flex;
+    flex-direction: column; /* Menempatkan teks secara vertikal */
+}
+
+.logo-title {
+    font-size: 50px;
+    font-weight: bold;
+	margin-top: -5px;
+}
+
+.logo-subtitle {
+    font-size: 10px;
+	margin-top: -15px;
+}
 	</style>
 </head>
 <!--end::Head-->
@@ -272,6 +302,17 @@ License: For each use you must have a valid license purchased only from above li
 							<!--end::Page title-->
 						</div>
 						<!--begin::Chat-->
+						<div class="app-navbar-item ms-1 ms-md-3">
+							<!--begin::Logo-->
+							<a href="#" class="logo-container">
+    <img alt="Logo" src="assets/ICON_RADAR.png" class="logo-img" />
+    <div class="logo-text">
+        <span class="logo-title">R A D A R</span>
+        <span class="logo-subtitle">Risiko Aliran Devisa dan Analisis Realtime</span>
+    </div>
+</a>
+							<!--end::Logo-->
+						</div>
 						<div class="app-navbar-item ms-1 ms-md-3">
 							<!--begin::Menu wrapper-->
 							<div class="btn btn-icon btn-custom btn-color-gray-600 btn-active-light btn-active-color-primary w-35px h-35px w-md-40px h-md-40px position-relative"

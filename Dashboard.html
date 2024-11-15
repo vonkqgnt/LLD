@@ -231,6 +231,37 @@ License: For each use you must have a valid license purchased only from above li
 		.highcharts-data-table tr:hover {
 			background: #f1f7ff;
 		}
+/* Mengatur tata letak kontainer logo dan teks */
+.logo-container {
+    display: flex;
+    align-items: center; /* Menjaga agar logo dan teks sejajar secara vertikal */
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: rgb(139, 187, 139);
+}
+
+/* Mengatur ukuran gambar logo */
+.logo-img {
+    height: 50px;
+    margin-right: 10px; /* Memberikan jarak antara logo dan teks */
+}
+
+/* Menata teks */
+.logo-text {
+    display: flex;
+    flex-direction: column; /* Menempatkan teks secara vertikal */
+}
+
+.logo-title {
+    font-size: 50px;
+    font-weight: bold;
+	margin-top: -5px;
+}
+
+.logo-subtitle {
+    font-size: 10px;
+	margin-top: -15px;
+}
+
 	</style>
 </head>
 <!--end::Head-->
@@ -281,6 +312,17 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Breadcrumb-->
 							</div>
 							<!--end::Page title-->
+						</div>
+						<div class="app-navbar-item ms-1 ms-md-3">
+							<!--begin::Logo-->
+							<a href="#" class="logo-container">
+    <img alt="Logo" src="assets/ICON_RADAR.png" class="logo-img" />
+    <div class="logo-text">
+        <span class="logo-title">R A D A R</span>
+        <span class="logo-subtitle">Risiko Aliran Devisa dan Analisis Realtime</span>
+    </div>
+</a>
+							<!--end::Logo-->
 						</div>
 						<!--begin::Chat-->
 						<div class="app-navbar-item ms-1 ms-md-3">
@@ -451,7 +493,9 @@ License: For each use you must have a valid license purchased only from above li
 								<!--begin:Menu item-->
 								<div class="menu-item">
 									<!--begin::Menu link-->
-									<a class="menu-link active" style="background: linear-gradient(45deg, #20c997, #28a745);" href="Dashboard.html">
+									<a class="menu-link active"
+										style="background: linear-gradient(45deg, #20c997, #28a745);"
+										href="Dashboard.html">
 										<!--begin::Icon-->
 										<span class="menu-icon">
 											<i class="ki-outline ki-chart-simple fs-2"></i>
@@ -757,7 +801,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<div class="menu-item">
 											<!--begin:Menu link-->
-											<a class="menu-link"  href="PERTUMBUHAN_KREDIT.html">
+											<a class="menu-link" href="PERTUMBUHAN_KREDIT.html">
 												<span class="menu-bullet">
 													<span class="bullet bullet-dot"></span>
 												</span>
@@ -1971,7 +2015,7 @@ License: For each use you must have a valid license purchased only from above li
 																								<!--end::Card-->
 																							</div>
 																							<!--end::Col-->
-																							
+
 																						</div>
 																						<!--end::Content container-->
 																					</div>
@@ -3653,82 +3697,82 @@ License: For each use you must have a valid license purchased only from above li
 																	fetchExcelDataPIE('DATA/Dashboard/Grafik_PIE.xlsx');
 
 																	function fetchExcelDataPIE(url) {
-        fetch(url)
-            .then(response => response.arrayBuffer())
-            .then(data => {
-                const workbook = XLSX.read(data, { type: 'array' });
-                const sheetName = workbook.SheetNames[0]; // Get the first sheet
-                const sheet = workbook.Sheets[sheetName];
-                const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+																		fetch(url)
+																			.then(response => response.arrayBuffer())
+																			.then(data => {
+																				const workbook = XLSX.read(data, { type: 'array' });
+																				const sheetName = workbook.SheetNames[0]; // Get the first sheet
+																				const sheet = workbook.Sheets[sheetName];
+																				const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-                // Process the Excel data and create the Highcharts chart
-                processExcelData(jsonData);
-            })
-            .catch(error => console.error('Error fetching or parsing Excel file:', error));
-    }
-	function processExcelData(data) {
-        const chartData = [];
-        const lineChartData = {};
+																				// Process the Excel data and create the Highcharts chart
+																				processExcelData(jsonData);
+																			})
+																			.catch(error => console.error('Error fetching or parsing Excel file:', error));
+																	}
+																	function processExcelData(data) {
+																		const chartData = [];
+																		const lineChartData = {};
 
-        // Extract the years from the header row (2024, 2023, etc.)
-        const years = data[0].slice(1);  // Extract years from the header
+																		// Extract the years from the header row (2024, 2023, etc.)
+																		const years = data[0].slice(1);  // Extract years from the header
 
-        // Process each row (each category)
-        for (let i = 1; i < data.length; i++) {
-            const row = data[i];
-            const category = row[0]; // The category name (e.g., "Reserve Asset Transactions")
-            const yearlyData = row.slice(1); // Data for each year
+																		// Process each row (each category)
+																		for (let i = 1; i < data.length; i++) {
+																			const row = data[i];
+																			const category = row[0]; // The category name (e.g., "Reserve Asset Transactions")
+																			const yearlyData = row.slice(1); // Data for each year
 
-            // Prepare data for the line chart and pie chart
-            chartData.push({
-                name: category,
-                data: yearlyData
-            });
+																			// Prepare data for the line chart and pie chart
+																			chartData.push({
+																				name: category,
+																				data: yearlyData
+																			});
 
-            // Collect the data for the line chart
-            lineChartData[category] = yearlyData;
-        }
+																			// Collect the data for the line chart
+																			lineChartData[category] = yearlyData;
+																		}
 
-        // Render the Pie chart with the processed data for the latest year (2024)
-        Highcharts.chart('containerPIE', {
-            chart: {
-                type: 'pie',
-                options3d: {
-                    enabled: true,
-                    alpha: 45,
-                    beta: 0
-                }
-            },
-            title: {
-                text: 'BOP Composit',
-                align: 'center'
-            },
-            accessibility: {
-                point: {
-                    valueSuffix: 'M'
-                }
-            },
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.y:.2f}M</b>'
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    depth: 35,
-                    dataLabels: {
-                        enabled: true,
-                        format: '{point.name}'
-                    }
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Share',
-                data: data.slice(1).map(row => [row[0], row[5]]) // Using the data for the latest year (2024)
-            }]
-        });
-    }
+																		// Render the Pie chart with the processed data for the latest year (2024)
+																		Highcharts.chart('containerPIE', {
+																			chart: {
+																				type: 'pie',
+																				options3d: {
+																					enabled: true,
+																					alpha: 45,
+																					beta: 0
+																				}
+																			},
+																			title: {
+																				text: 'BOP Composit',
+																				align: 'center'
+																			},
+																			accessibility: {
+																				point: {
+																					valueSuffix: 'M'
+																				}
+																			},
+																			tooltip: {
+																				pointFormat: '{series.name}: <b>{point.y:.2f}M</b>'
+																			},
+																			plotOptions: {
+																				pie: {
+																					allowPointSelect: true,
+																					cursor: 'pointer',
+																					depth: 35,
+																					dataLabels: {
+																						enabled: true,
+																						format: '{point.name}'
+																					}
+																				}
+																			},
+																			series: [{
+																				type: 'pie',
+																				name: 'Share',
+																				data: data.slice(1).map(row => [row[0], row[5]]) // Using the data for the latest year (2024)
+																			}]
+																		});
+																	}
 
 
 																</script>

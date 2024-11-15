@@ -145,6 +145,36 @@ License: For each use you must have a valid license purchased only from above li
 		.highcharts-data-table tr:hover {
 			background: #f1f7ff;
 		}
+		/* Mengatur tata letak kontainer logo dan teks */
+.logo-container {
+    display: flex;
+    align-items: center; /* Menjaga agar logo dan teks sejajar secara vertikal */
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: rgb(139, 187, 139);
+}
+
+/* Mengatur ukuran gambar logo */
+.logo-img {
+    height: 50px;
+    margin-right: 10px; /* Memberikan jarak antara logo dan teks */
+}
+
+/* Menata teks */
+.logo-text {
+    display: flex;
+    flex-direction: column; /* Menempatkan teks secara vertikal */
+}
+
+.logo-title {
+    font-size: 50px;
+    font-weight: bold;
+	margin-top: -5px;
+}
+
+.logo-subtitle {
+    font-size: 10px;
+	margin-top: -15px;
+}
 	</style>
 </head>
 <!--end::Head-->
@@ -193,6 +223,17 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Breadcrumb-->
 							</div>
 							<!--end::Page title-->
+						</div>
+						<div class="app-navbar-item ms-1 ms-md-3">
+							<!--begin::Logo-->
+							<a href="#" class="logo-container">
+    <img alt="Logo" src="assets/ICON_RADAR.png" class="logo-img" />
+    <div class="logo-text">
+        <span class="logo-title">R A D A R</span>
+        <span class="logo-subtitle">Risiko Aliran Devisa dan Analisis Realtime</span>
+    </div>
+</a>
+							<!--end::Logo-->
 						</div>
 						<!--begin::Chat-->
 						<div class="app-navbar-item ms-1 ms-md-3">
